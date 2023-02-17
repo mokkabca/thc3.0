@@ -26,3 +26,21 @@ bash thc3.0.sh
 <p align="left">
   <a href="https://shell.cloud.google.com/cloudshell/open?cloudshell_git_repo=https://github.com/mokkabca/thc3.0.git" target="_blank"><img src="https://gstatic.com/cloudssh/images/open-btn.svg"></a>
 </p>
+
+
+
+##
+
+### Features
+
+- Latest and updated login pages.
+- Beginners friendly
+- Multiple tunneling options
+  - Localhost
+  - Ngrok
+  - Cloudflared
+  - LocalXpose
+- Mask URL support 
+- Docker support
+
+##
