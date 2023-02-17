@@ -1,7 +1,7 @@
 # Thc3.0
-<p align="center">
-<h2> A beginners friendly, Automated phishing tool with 30+ templates.</h2><br>
 
+<h2 align="center"> A beginners friendly, Automated phishing tool with 30+ templates.</h2><br>
+<p align="center">
 <img  src="https://cybersapiens.com.au/wp-content/uploads/2021/07/1626357573804.png" style="width: 200px;">
 </p>
 <h2 align="center">Disclaimer</h2>
