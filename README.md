@@ -9,7 +9,7 @@
 <p>
 You are solely responsible for any actions related to Thc. Misuse of this toolkit may result in criminal charges. The contributors are not responsible for any legal consequences. Check local laws before using it. It is for educational purposes only. Do not attempt to break the law. This is only a demonstration of phishing. Do not use it for unauthorized access, but feel free to try at your own risk.
   </p>
-## Installation
+<h3>Installation</h3>
 
 - Just, Clone this repository -
 ```
@@ -21,7 +21,7 @@ cd thc3.0
 bash thc3.0.sh
 ```
 - On first launch, It'll install the dependencies and that's it. ***Thc3.0*** is installed.
-##
+
 
 <p align="left">
   <a href="https://shell.cloud.google.com/cloudshell/open?cloudshell_git_repo=https://github.com/mokkabca/thc3.0.git" target="_blank"><img src="https://gstatic.com/cloudssh/images/open-btn.svg"></a>
