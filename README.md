@@ -4,7 +4,7 @@
 
 
 <p align="center">
-<img src="https://cybersapiens.com.au/wp-content/uploads/2021/07/1626357573804.png">  </br>
+<img src="https://cybersapiens.com.au/wp-content/uploads/2021/07/1626357573804.png" style="max-width: 25%;">  </br>
 </p>
 
 <p align="left" dir="auto">
