@@ -9,7 +9,7 @@
 <p>
 You are solely responsible for any actions related to Thc. Misuse of this toolkit may result in criminal charges. The contributors are not responsible for any legal consequences. Check local laws before using it. It is for educational purposes only. Do not attempt to break the law. This is only a demonstration of phishing. Do not use it for unauthorized access, but feel free to try at your own risk.
   </p>
-### Installation
+## Installation
 
 - Just, Clone this repository -
 ```
