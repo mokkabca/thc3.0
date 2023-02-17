@@ -30,7 +30,6 @@ bash thc3.0.sh
 
 
 ##
-
 ### Features
 
 - Latest and updated login pages.
@@ -39,8 +38,5 @@ bash thc3.0.sh
   - Localhost
   - Ngrok
   - Cloudflared
-  - LocalXpose
 - Mask URL support 
-- Docker support
 
-##
