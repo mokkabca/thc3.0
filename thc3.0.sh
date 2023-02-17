@@ -818,7 +818,6 @@ main_menu() {
 ## Main
 kill_pid
 dependencies
-check_status
 install_ngrok
 install_cloudflared
 main_menu
