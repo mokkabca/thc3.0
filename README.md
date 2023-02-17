@@ -1,4 +1,4 @@
-# thc3.0
+# Thc3.0
 
 
 <p align="left" dir="auto">
