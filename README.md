@@ -2,7 +2,7 @@
 
 <h2> A beginners friendly, Automated phishing tool with 30+ templates.
 <p align="center">
-<img src="https://cybersapiens.com.au/wp-content/uploads/2021/07/1626357573804.png" style="width: 200px;">  </br>
+<img src="https://cybersapiens.com.au/wp-content/uploads/2021/07/1626357573804.png" style="width: 200px;">
 </p>
 <h2 align="center">Disclaimer</h2>
 <p align="left" dir="auto">
