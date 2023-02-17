@@ -7,13 +7,7 @@
 <h2 align="center">Disclaimer</h2>
 
 <p>
-Any actions and or activities related to Thc is solely your responsibility. The misuse of this toolkit can result in criminal charges brought against the persons in question. The contributors will not be held responsible in the event any criminal charges be brought against any individuals misusing this toolkit to break the law.
-
-This toolkit contains materials that can be potentially damaging or dangerous for social media. Refer to the laws in your province/country before accessing, using,or in any other way utilizing this in a wrong way.
-
-This Tool is made for educational purposes only. Do not attempt to violate the law with anything contained here. If this is your intention, then Get the hell out of here!
-
-It only demonstrates "how phishing works". You shall not misuse the information to gain unauthorized access to someones social media. However you may try out this at your own risk.
+You are solely responsible for any actions related to Thc. Misuse of this toolkit may result in criminal charges. The contributors are not responsible for any legal consequences. Check local laws before using it. It is for educational purposes only. Do not attempt to break the law. This is only a demonstration of phishing. Do not use it for unauthorized access, but feel free to try at your own risk.
   </p>
 
 <p align="left" dir="auto">
